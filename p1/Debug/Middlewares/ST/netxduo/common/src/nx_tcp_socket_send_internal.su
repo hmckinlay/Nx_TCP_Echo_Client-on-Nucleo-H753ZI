@@ -1,0 +1,1 @@
+nx_tcp_socket_send_internal.c:93:7:_nx_tcp_socket_send_internal	184	static,ignoring_inline_asm
