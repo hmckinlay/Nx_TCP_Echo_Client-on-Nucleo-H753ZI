@@ -243,13 +243,6 @@ static VOID App_Main_Thread_Entry(ULONG thread_input)
   	nx.sCount++;
   }
 
-  //while(1)
-  //{
-  //	HAL_GPIO_TogglePin(GPO_LED_RED_GPIO_Port, GPO_LED_RED_Pin);
-  //  PRINT_IP_ADDRESS(nx.IpAddress);
-  //  tx_thread_sleep(100); // Thread sleep for 1s
-  //}
-
   /* the network is correctly initialized, start the TCP server thread */
   tx_thread_resume(&nx.AppTCPThread);
   /* this thread is not needed any more, relinquish it */
@@ -280,6 +273,15 @@ static VOID ip_address_change_notify_callback(NX_IP *ip_instance, VOID *ptr)
 static VOID App_TCP_Thread_Entry(ULONG thread_input)
 {
 	printf("I:App_TCP_Thread_Entry\r\n");
+
+
+  while(1) //Ping responses will now work.
+  {
+  	HAL_GPIO_TogglePin(GPO_LED_RED_GPIO_Port, GPO_LED_RED_Pin);
+    PRINT_IP_ADDRESS(nx.IpAddress);
+    tx_thread_sleep(100); // Thread sleep for 1s
+  }
+
 /*
   UINT ret;
   UINT count = 0;
