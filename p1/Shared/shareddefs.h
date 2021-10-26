@@ -40,7 +40,7 @@ typedef volatile u32 									vu32;
 #define SDEF_BIT_CHECK(a,b) 					(!!((a) & (1UL<<(b))))
 
 //#define SDEF_CACHE
-//#define SDEF_MPU
+#define SDEF_MPU
 #define SDEF_ITM
 
 //#include "globaldefs.h"
